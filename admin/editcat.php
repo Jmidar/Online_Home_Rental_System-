@@ -39,9 +39,10 @@
             }
         ?>
 
-        <?php
+        <?php 
             $query = "select * from tbl_category where id=$id order by id desc";
             $category = $db->select($query);
+            if ($category){
              while ($result = $category->fetch_assoc()) {
                  
              
@@ -60,7 +61,7 @@
                         </tr>
                     </table>
                     </form>
-            <?php } ?>
+            <?php  } }  ?>
                 </div>
             </div>
         </div>
