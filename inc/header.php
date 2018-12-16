@@ -72,5 +72,8 @@
 				        </a> </li>
 				<?php } } ?>
 		<li><a <?php if($titlepage == 'contact'){ echo 'id = "active"'; }?> href="contact.php">Contact</a></li>
+
+		<li style="float: right;"><a href="">SingUp</a></li>
+		<li style="float: right;"><a href="admin/index.php">Login</a></li>
 	</ul>
 </div>
