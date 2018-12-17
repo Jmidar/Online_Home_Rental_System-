@@ -24,7 +24,7 @@
                 $email = mysqli_real_escape_string($db->link, $email);
                 $role = mysqli_real_escape_string($db->link, $role);
                // echo "<span style='color: red;font-size: 18px;'>No Result Found...!!!</span>";
-                if (empty($username) || empty($password) || empty($email) || empty($role)){
+                if ($username == ""|| $password == "" || $email == "" || $role == ""){
                     echo "<span style='color: red;font-size: 18px;'>Your Field is Empty...!!!</span>";
                 }else{
 
