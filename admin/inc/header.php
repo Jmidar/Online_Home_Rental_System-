@@ -1,6 +1,7 @@
 <?php
     include '../lib/Session.php' ;
     Session:: init();
+    
 ?>
 
 <?php include '../config/config.php'; ?>

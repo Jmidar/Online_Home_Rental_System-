@@ -22,9 +22,16 @@
 				<h2><a href=" post.php?id=<?php echo $result['id'];?>"><?php echo $result['title'];?></a></h2>
 				<h4><?php echo $fm->formatDate($result['date']); ?>,  By <a href = "#"><?php echo $result['author'];?></a></h4>
 				<img src="admin/<?php echo $result['image']; ?>" alt="post image"/>
-				<?php echo $result['body']; ?>
+				<?php echo $result['bedroom']; ?> Bedroom<br>
+				<?php echo $result['bathroom']; ?> Bathroom<br>
+				Location: Kazir Dewri<!-- <?php echo $result['location']; ?> --><br>
+				Category: Family<!-- <?php echo $result['cat']; ?> --><br>
+				<h3>Price: <?php echo $result['price'];?></h3>
+				<h3>Mobile Number: <?php echo $result['mobile']; ?></h3>
+				<?php echo $result['body']; ?><br><br><br>
+				
 
-				<div id="disqus_thread"></div>
+				<div id="disqus_thread"></div><hr>
 <script>
 
 /**

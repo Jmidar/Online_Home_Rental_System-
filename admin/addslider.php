@@ -1,5 +1,10 @@
 <?php include 'inc/header.php' ?>
 <?php include 'inc/sidebar.php' ?>
+<?php
+    if(!Session::get('userRole') === '0') {
+        echo "<script>window.location = 'index.php';</script>";
+    }
+?>
 
         <div class="grid_10">
 		
@@ -32,7 +37,10 @@
                         .implode(', ', $permited)."</span>";
                  } else{
                       move_uploaded_file($file_temp, $uploaded_image);
-                      $query = "INSERT INTO tbl_slider(title,image) VALUES('$title','$uploaded_image')";
+                      $query = "UPDATE tbl_slider set 
+                                title='$title',
+                                image='$uploaded_image'
+                                WHERE id = '1'";
                       //var_dump($query);
                       $inserted_rows = $db->insert($query);
                       if ($inserted_rows) {

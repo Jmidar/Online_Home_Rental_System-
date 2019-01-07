@@ -1,16 +1,20 @@
 <?php include 'inc/header.php'; ?>
-<?php include 'inc/slider.php'; ?>	
+<?php include 'inc/slider.php'; ?>
+
+
 
 	<div class="contentsection contemplete clear">
 
 				<div class="maincontent clear">	
+
+	
 		
 				<tr>
                             <td>
                                 <label>Select your Location:</label>
                             </td>
                             <td>
-                                <select id="select" name="cat">
+                                <select id="select" name="loc">
                                     <option>Select Location</option>
                               <?php
                                 $query = "SELECT * FROM tbl_Location";
@@ -87,6 +91,9 @@
 
 				<a href = "#"><img src="admin/<?php echo $result['image']; ?>" alt="post image"/></a>
 
+				<?php echo $result['bedroom']; ?> Bedroom<br>
+				<?php echo $result['bathroom']; ?> Bathroom<br>
+				Location: <?php echo $result['location']; ?><br>
 				<?php echo $fm->textShorten($result['body']); ?>
 				<div class="readmore clear">
 

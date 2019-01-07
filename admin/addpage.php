@@ -1,6 +1,7 @@
 <?php include 'inc/header.php' ?>
 <?php include 'inc/sidebar.php' ?>
 
+
         <div class="grid_10">
 		
             <div class="box round first grid">
@@ -18,13 +19,10 @@
 
                     echo "<span style='color: red;font-size: 18px;'>Field must not be Empty...!!!</span>";
                  } else{
-                     $query = "UPDATE tbl_page
-                              SET
-                              name = '$name',
-                              body = '$body'
-                              WHERE id = $id
-                            ";
-                     $updated_row = $db->update($query);
+                     
+                      $query = "INSERT INTO tbl_page(name,body) 
+                                VALUES('$name','$body')";
+                     $updated_row = $db->insert($query);
                       if ($updated_row) {
                       echo "<span class='success'>Page created Successfully.
                       </span>";

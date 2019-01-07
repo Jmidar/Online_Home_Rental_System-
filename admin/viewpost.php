@@ -88,10 +88,10 @@ $getpost = $db->select($query);
                   </tr>
                   <tr>
                       <td>
-                          <label>Tags</label>
+                          <label>Number</label>
                       </td>
                       <td>
-                          <input type="text" readonly value = "<?php echo $postresult['tags']; ?>" class="medium" />
+                          <input type="text" readonly value = "<?php echo $postresult['mobile']; ?>" class="medium" />
                       </td>
                   </tr>
                   <tr>

@@ -1,6 +1,11 @@
 ﻿<?php include 'inc/header.php' ?>
 <?php include 'inc/sidebar.php' ?>
 <?php
+    if(!Session::get('userRole') == '0' || !Session::get('userRole') == '1'){
+        echo "<script>window.location = 'index.php';</script>";
+    }
+?>
+<?php
 	if (isset($_GET['seenid'])) {
 		$seenid = $_GET['seenid'];
 			$query = "UPDATE tbl_contact SET status = '1' WHERE id = '$seenid'";

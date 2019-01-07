@@ -2,6 +2,11 @@
     include '../lib/Session.php' ;
     Session:: init();
 ?>
+<?php
+    if(!Session::get('userRole') === '0' || !Session::get('userRole') === '1'){
+        echo "<script>window.location = 'index.php';</script>";
+    }
+?>
 
 <?php include '../config/config.php'; ?>
 <?php include '../lib/Database.php'; ?>

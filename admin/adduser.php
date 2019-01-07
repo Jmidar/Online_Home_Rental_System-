@@ -1,7 +1,7 @@
 <?php include 'inc/header.php' ?>
 <?php include 'inc/sidebar.php' ?>
 <?php
-    if(!Session::get('userRole') == '0'){
+    if(!Session::get('userRole') === '0'){
         echo "<script>window.location = 'index.php';</script>";
     }
 ?>

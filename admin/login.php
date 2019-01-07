@@ -32,9 +32,9 @@
 				$query = "SELECT * FROM tbl_user WHERE username = '$username' AND password = '$password'";
 				$result = $db->select($query);
 					if ($result != false){
-					//$value = mysqli_fetch_array($result);
-					//$row = mysqli_num_rows($result);
-						$value = $result->fetch_assoc();
+					$value = mysqli_fetch_array($result);
+					$row = mysqli_num_rows($result);
+						//$value = $result->fetch_assoc();
 					
 						Session::set("login", true);
 						Session::set("username", $value['username']);

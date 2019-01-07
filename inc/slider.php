@@ -1,7 +1,7 @@
 <div class="slidersection templete clear">
         <div id="slider">
         	<?php 
-            $query = "select * from tbl_slider order by id limit 5";
+            $query = "select * from tbl_slider order by id limit 1";
             $slider = $db->select($query);
             if ($slider){
              while ($result = $slider->fetch_assoc()) {

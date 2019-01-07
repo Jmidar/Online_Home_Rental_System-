@@ -1,3 +1,4 @@
+
 <?php include 'config/config.php'; ?>
 <?php include 'lib/Database.php'; ?>
 <?php include 'helpers/Format.php'; ?>
@@ -34,7 +35,7 @@
 		</a>
 		<div class="social clear">
 			<div class="icon clear">
-				<a href="#" target="_blank"><i class="fa fa-facebook"></i></a>
+				<a href="http://www.facebook.com" target="www.facebook.com"><i class="fa fa-facebook"></i></a>
 				<a href="#" target="_blank"><i class="fa fa-twitter"></i></a>
 				<a href="#" target="_blank"><i class="fa fa-linkedin"></i></a>
 				<a href="#" target="_blank"><i class="fa fa-google-plus"></i></a>

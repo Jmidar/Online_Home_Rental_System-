@@ -1,10 +1,7 @@
-﻿<?php include 'inc/header.php' ?>
+<?php include 'inc/header.php' ?>
 <?php include 'inc/sidebar.php' ?>
-<?php
-    if((!Session::get('userRole') === '0' ) || (!Session::get('userRole') === '1' ) || (!Session::get('userRole') === '2' )){
-        echo "<script>window.location = 'index.php';</script>";
-    }
-?>
+
+
 
         <div class="grid_10">
     
@@ -34,6 +31,11 @@
                  $file_ext = strtolower(end($div));
                  $unique_image = substr(md5(time()), 0, 10).'.'.$file_ext;
                  $uploaded_image = "Upload/".$unique_image;
+
+                 // category
+                 $query1 = "INSERT INTO tbl_post(cat) VALUES('$category')";
+                    $catinsert = $db->insert($query1);
+                 //
 
                  if ($title == "" || $location == "" || $category == "" || $bedroom == "" || $bathroom == "" || $price == "" || $number == "" || $author == "" || $file_name == ""){
 

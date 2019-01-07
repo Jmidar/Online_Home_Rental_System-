@@ -1,5 +1,10 @@
 <?php include 'inc/header.php' ?>
 <?php include 'inc/sidebar.php' ?>
+<?php
+    if(!Session::get('userRole') == '0'){
+        echo "<script>window.location = 'index.php';</script>";
+    }
+?>
 
         <div class="grid_10">
             <div class="box round first grid">
@@ -11,14 +16,14 @@
 					<thead>
 						<tr>
 							<th width="5%">No.</th>
-							<th width="20%">Post Title</th>
-							<th width="15%">Description</th>
+							<th width="15%">Post Title</th>
+							<th width="10%">Description</th>
 							<th width="10%">Category</th>
 							<th width="10%">Image</th>
 							<th width="10%">Author</th>
 							<th width="10%">Tags</th>
 							<th width="10%">Date</th>
-							<th width="10%">Action</th>
+							<th width="20%">Action</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -40,7 +45,7 @@
 							<td><?php echo $result['name']; ?></td>
 							<td><img src="<?php echo $result['image']; ?>" height="40px"; width="60px"; /></td>
 							<td><?php echo $result['author']; ?></td>
-							<td><?php echo $result['tags']; ?></td>
+							<td><?php echo $result['mobile']; ?></td>
 							<td><?php echo $fm->formatDate($result['date']); ?></td>
 			<td>
 				<a href="viewpost.php?viewpostid=<?php echo $result['id']; ?>">View</a> 

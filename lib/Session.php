@@ -21,8 +21,10 @@ class Session{
 	public static function checkSession(){
 		self::init();
 		if (self::get("login")==false){
-			self::destroy();
+			//self::destroy();
 			header("Location:login.php");
+			exit();
+
 		}
 	}
 
@@ -36,6 +38,7 @@ class Session{
 	public static function destroy(){
 		session_destroy();
 		header("Location:login.php");
+		exit();
 	}
 }
 
