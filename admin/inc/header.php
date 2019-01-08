@@ -96,10 +96,14 @@
         </div>
         <div class="grid_12">
             <ul class="nav main">
+             
                 <li class="ic-dashboard"><a href="index.php"><span>Dashboard</span></a> </li>
+             
                 <li class="ic-dashboard"><a href="theme.php"><span>Theme</span></a> </li>
                 <li class="ic-form-style"><a href="profile.php"><span>User Profile</span></a></li>
                 <li class="ic-typography"><a href="changepassword.php"><span>Change Password</span></a></li>
+
+              <?php if(Session::get('userRole') == '0'){  ?> 
                 <li class="ic-grid-tables"><a href="inbox.php"><span>Inbox
             <?php
                 $query = "SELECT * FROM tbl_contact WHERE status='0' order by id desc";
@@ -112,10 +116,13 @@
                   }
             ?>
                 </span></a></li>
+             <?php } ?>
             <?php if(Session::get('userRole') == '0'){  ?>
                 <li class="ic-charts"><a href="adduser.php"><span>Add User</span></a></li>
             <?php } ?>
+            <?php if(Session::get('userRole') == '0'){  ?>
                 <li class="ic-charts"><a href="userlist.php"><span>User List</span></a></li>
+            <?php } ?>
             </ul>
         </div>
         <div class="clear">

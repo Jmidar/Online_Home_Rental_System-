@@ -1,10 +1,7 @@
 ﻿<?php include 'inc/header.php' ?>
 <?php include 'inc/sidebar.php' ?>
-<?php
-    if((!Session::get('userRole') === '0' ) || (!Session::get('userRole') === '1' ) || (!Session::get('userRole') === '2' )){
-        echo "<script>window.location = 'index.php';</script>";
-    }
-?>
+
+
 
         <div class="grid_10">
     
@@ -16,7 +13,8 @@
 
                 $title = mysqli_real_escape_string($db->link, $_POST['title']);
                 $location = mysqli_real_escape_string($db->link, $_POST['loc']);
-                $category = mysqli_real_escape_string($db->link, $_POST['cat']);
+                $category = mysqli_real_escape_string($db->link, 
+                  $_POST['cat']);
                 $bedroom = mysqli_real_escape_string($db->link, $_POST['bed']);
                 $bathroom = mysqli_real_escape_string($db->link, $_POST['bath']);
                 $body = mysqli_real_escape_string($db->link, $_POST['body']);
@@ -35,6 +33,8 @@
                  $unique_image = substr(md5(time()), 0, 10).'.'.$file_ext;
                  $uploaded_image = "Upload/".$unique_image;
 
+           
+
                  if ($title == "" || $location == "" || $category == "" || $bedroom == "" || $bathroom == "" || $price == "" || $number == "" || $author == "" || $file_name == ""){
 
                     echo "<span style='color: red;font-size: 18px;'>Field must not be Empty...!!!</span>";
@@ -46,16 +46,16 @@
                         .implode(', ', $permited)."</span>";
                  } else{
                       move_uploaded_file($file_temp, $uploaded_image);
-                     /* $query = "INSERT INTO tbl_post( title, location, category, bedroom, bathroom, condition, price, image, author, mobile, userid) VALUES( '$title', '$location', '$category', '$bedroom', '$bathroom', '$condition', '$price', '$uploaded_image', '$author', '$number', '$userid')";*/
-
                      $query = "INSERT INTO `tbl_post` ( `cat`, `location`, `bedroom`, `bathroom`, `price`, `title`, `body`, `image`, `author`, `mobile`, `userid`) VALUES ( '$category', '$location', '$bedroom', '$bathroom', '$price', '$title', '$body', '$uploaded_image', '$author', '$number', '$userid')";
                       //var_dump($query);
                       $inserted_rows = $db->insert($query);
                       if ($inserted_rows) {
                       echo "<span class='success'>Post Inserted Successfully.
                       </span>";
+                      echo "<script>window.location = 'postlist.php';</script>";
                       }else {
                            echo "<span class='error'>Post Not Inserted !</span>";
+                           
                            }
                     } 
                 }
@@ -74,6 +74,25 @@
                         </tr>
                         <tr>
                             <td>
+                                <label>Category</label>
+                            </td>
+                            <td>
+                                <select id="select" name="cat">
+                                    <option>Select Category</option>
+                              <?php
+                                $query1 = "SELECT * FROM `tbl_category`";
+                                $category = $db->select($query1);
+                                 if ($category){
+                                    while ($result = $category->fetch_assoc()) {
+                                         
+                              ?>
+                                    <option value="<?php echo $result['name']; ?>"><?php echo $result['name']; ?></option>
+                              <?php  } } ?>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
                                 <label>Location</label>
                             </td>
                             <td>
@@ -86,37 +105,13 @@
                                     while ($result = $location->fetch_assoc()) {
                                          
                               ?>
-                                    <option value="<?php echo $result['id'] ?>"><?php echo $result['name']; ?></option>
+                                    <option value="<?php echo $result['name']; ?>"><?php echo $result['name']; ?></option>
                               <?php  } } ?>
                                 </select>
                             </td>
-
-
-
-
                         </tr>
 
                         
-                     
-                        <tr>
-                            <td>
-                                <label>Category</label>
-                            </td>
-                            <td>
-                                <select id="select" name="cat">
-                                    <option>Select Category</option>
-                              <?php
-                                $query = "SELECT * FROM tbl_category";
-                                $category = $db->select($query);
-                                 if ($category){
-                                    while ($result = $category->fetch_assoc()) {
-                                         
-                              ?>
-                                    <option value="<?php echo $result['id'] ?>"><?php echo $result['name']; ?></option>
-                              <?php  } } ?>
-                                </select>
-                            </td>
-                        </tr>
 
                         
                          <tr>   <td>
@@ -124,7 +119,7 @@
                             </td>
                             <td>
                                 <select id="select" name="bed">
-                                    <option>Select Location</option>
+                                    <option>Select Bedroom</option>
                               <?php
                                 $query = "SELECT * FROM tbl_number";
                                 $number = $db->select($query);

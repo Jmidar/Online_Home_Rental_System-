@@ -1,6 +1,12 @@
 <?php include 'inc/header.php' ?>
 <?php include 'inc/sidebar.php' ?>
 
+<?php
+    if(!Session::get('userRole') === '0' || !Session::get('userRole') === '1' ){
+        echo "<script>window.location = 'index.php';</script>";
+    }
+?>
+
 
         <div class="grid_10">
 		
@@ -22,8 +28,8 @@
                      
                       $query = "INSERT INTO tbl_page(name,body) 
                                 VALUES('$name','$body')";
-                     $updated_row = $db->insert($query);
-                      if ($updated_row) {
+                     $inserted_row = $db->insert($query);
+                      if ($inserted_row) {
                       echo "<span class='success'>Page created Successfully.
                       </span>";
                       }else {

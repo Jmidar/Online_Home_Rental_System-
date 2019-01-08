@@ -24,8 +24,8 @@
 				<img src="admin/<?php echo $result['image']; ?>" alt="post image"/>
 				<?php echo $result['bedroom']; ?> Bedroom<br>
 				<?php echo $result['bathroom']; ?> Bathroom<br>
-				Location: Kazir Dewri<!-- <?php echo $result['location']; ?> --><br>
-				Category: Family<!-- <?php echo $result['cat']; ?> --><br>
+				Location: <?php echo $result['location']; ?> <br>
+				Category: <?php echo $result['cat']; ?> <br>
 				<h3>Price: <?php echo $result['price'];?></h3>
 				<h3>Mobile Number: <?php echo $result['mobile']; ?></h3>
 				<?php echo $result['body']; ?><br><br><br>
