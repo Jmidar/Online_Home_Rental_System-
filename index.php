@@ -94,6 +94,7 @@
 				<?php echo $result['bedroom']; ?> Bedroom<br>
 				<?php echo $result['bathroom']; ?> Bathroom<br>
 				Location: <?php echo $result['location']; ?><br>
+				Type: <?php echo $result['cat']; ?><br>
 				<?php echo $fm->textShorten($result['body']); ?>
 				<div class="readmore clear">
 
